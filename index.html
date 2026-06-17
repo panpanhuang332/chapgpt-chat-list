@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="zh-Hant">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>ChatGPT Knowledge Archive</title>
+    <link rel="stylesheet" href="styles.css">
+  </head>
+  <body>
+    <div class="shell">
+      <header class="topbar">
+        <div>
+          <p class="eyebrow">Knowledge Archive</p>
+          <h1>ChatGPT 對話知識庫</h1>
+        </div>
+        <div class="meta" id="archiveMeta">載入中</div>
+      </header>
+
+      <section class="controls" aria-label="Archive controls">
+        <label class="search">
+          <span>搜尋</span>
+          <input id="searchInput" type="search" placeholder="輸入關鍵字、標題或內容">
+        </label>
+        <label>
+          <span>排序</span>
+          <select id="sortSelect">
+            <option value="updated">最近更新</option>
+            <option value="created">最早建立</option>
+            <option value="title">標題</option>
+            <option value="messages">訊息數</option>
+          </select>
+        </label>
+        <label>
+          <span>角色</span>
+          <select id="roleSelect">
+            <option value="all">全部</option>
+            <option value="user">只看我</option>
+            <option value="assistant">只看 ChatGPT</option>
+          </select>
+        </label>
+      </section>
+
+      <main class="workspace">
+        <aside class="sidebar" aria-label="Conversation list">
+          <div class="stats">
+            <div>
+              <strong id="conversationCount">0</strong>
+              <span>對話</span>
+            </div>
+            <div>
+              <strong id="messageCount">0</strong>
+              <span>訊息</span>
+            </div>
+          </div>
+          <div id="conversationList" class="conversation-list"></div>
+        </aside>
+
+        <article class="detail" id="conversationDetail" aria-live="polite">
+          <div class="empty">
+            <h2>尚未載入任何對話</h2>
+            <p>請先將 OpenAI 匯出的 <code>conversations.json</code> 放進專案，再執行匯入工具產生網站資料。</p>
+            <pre><code>node tools/import-chatgpt-export.mjs path/to/conversations.json</code></pre>
+          </div>
+        </article>
+      </main>
+    </div>
+
+    <script src="data/conversations.js"></script>
+    <script src="app.js" defer></script>
+  </body>
+</html>
