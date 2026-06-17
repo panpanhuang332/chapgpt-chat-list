@@ -44,9 +44,7 @@ python -m http.server 8080
 1. 建立 GitHub repository。
 2. 將本專案檔案 push 到 repository。
 3. 到 repo 的 `Settings` -> `Pages`。
-4. Source 選 `GitHub Actions`。
-5. push 到 `main` 後，`.github/workflows/pages.yml` 會發布網站。
+4. Source 選 `Deploy from a branch`。
+5. Branch 選 `main`，資料夾選 `/root`。
 
 完成後 GitHub 會提供一個 Pages 網址。
-
-也可以不用 Actions，改用 `Deploy from a branch`，branch 選 `main`，資料夾選 `/root`。
